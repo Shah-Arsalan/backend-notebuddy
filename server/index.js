@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 const PORT = process.env.PORT || 5000;
-
+console.log("the corssss is ", cors)
 connectionFunc();
 
 const secret = process.env.AUTH_SECRET;

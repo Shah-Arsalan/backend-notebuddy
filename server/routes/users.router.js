@@ -1,8 +1,10 @@
 const express = require('express')
 const { extend } = require('lodash')
+const cors = require('cors')
 const router = express.Router()
 const user = require('../models/users.models')
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 var jwt = require('jsonwebtoken');
 
@@ -43,6 +45,7 @@ router.route('/signup')
 router.route('/login')
   .post(async (req, res) => {
     try {
+      console.log("coming here")
       const { email, password } = req.body;
       console.log("email , password", email, password)
       const foundUser = await user.find({ email: email })
