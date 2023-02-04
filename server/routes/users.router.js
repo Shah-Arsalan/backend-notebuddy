@@ -1,10 +1,10 @@
 const express = require('express')
 const { extend } = require('lodash')
-const cors = require('cors')
+// const cors = require('cors')
 const router = express.Router()
 const user = require('../models/users.models')
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 var jwt = require('jsonwebtoken');
 

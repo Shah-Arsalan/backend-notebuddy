@@ -12,7 +12,10 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 const PORT = process.env.PORT || 5000;
 console.log("the corssss is ", cors)
 connectionFunc();
