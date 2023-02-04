@@ -8,7 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 var jwt = require('jsonwebtoken');
 
-
+console.log("the user is" , user)
 const secret = process.env.AUTH_SECRET;
 
 router.route('/signup')
@@ -49,6 +49,8 @@ router.route('/login')
       const { email, password } = req.body;
       console.log("email , password", email, password)
       const foundUser = await user.find({ email: email })
+      res.json(foundUser);
+      res.json(foundUser.length);
       if (foundUser.length !== 0) {
         console.log("The found user is", foundUser)
         console.log("founduser.password", foundUser[0].password)
