@@ -12,7 +12,13 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+const corsAllowedOrigin = '.*localhost.*|.*YOUR_WEBSITE_NAME*';
+const corsOptions = {
+  origin: new RegExp(corsAllowedOrigin, 'i') || true,
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 // app.use(cors({
 //   origin: '*'
 // }));
